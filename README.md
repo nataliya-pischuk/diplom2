@@ -178,7 +178,7 @@ elastic_srv ansible_host=elasticsearch.ru-central1.internal
 #### 4. Проверяем доступность VM используя модуль ping
 ![alt text](img/9img.JPG)
 
-### Устанавливаем NGINX и загружаем сайт
+## Устанавка NGINX
 ```
 ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini nginx.yml 
 ```
@@ -189,5 +189,47 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini nginx.yml
 
 Делаем запрос curl -v
 ![alt text](img/12img.JPG)
+
+## Мониторинг 
+#### 1. Устанавливаем Zabbix сервер
+```
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini zabbix.yml
+```
+![alt text](img/13img.JPG)
+
+![alt text](img/14img.JPG)
+
+#### 2. Устанавливаем Zabbix агентов на web сервера
+   ```
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini zabbix_agent.yml 
+```
+![alt text](img/15img.JPG)
+
+#### 3. Добавляем хосты используя FQDN имена в zabbix сервер и настраиваем дашборды
+
+## Устанавлиеваем стек ELK для сбора логов
+#### Устанавливаем Elasticsearch
+```
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini elastic.yml 
+```
+![alt text](img/16img.JPG)
+#### Устанавливаем Kibana
+```
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini kibana.yml
+```
+![alt text](img/17img.JPG)
+Проверяем, что Kibana работает
+![alt text](img/18img.JPG)
+
+#### Устанавливаем Filebeat на web сервера
+```
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini filebeat.yml 
+```
+![alt text](img/19img.JPG)
+
+Проверяем в Kibana что Filebeat доставляет логи в Elasticsearch
+
+
+
 
 
