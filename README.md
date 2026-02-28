@@ -67,13 +67,6 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 1. Устанавливаем и проверяем работу terraform
 ```
 terraform -v
+```
+![alt text](/img/1img.png)  
 
-## Инфраструктура  
-Согласно условию задания для развертывания виртуальных машин использую Terraform.  
-Сразу разворачиваю все необходимые виртуальные машины минимальной конфигурации.  
-![alt text](https://github.com/masterchoo495/diplom/blob/main/img/tf1.png)  
-
-![alt text](https://github.com/masterchoo495/diplom/blob/main/img/tf2.png)  
-
-Развернутые виртуальные машины  
-![alt text](https://github.com/masterchoo495/diplom/blob/main/img/cloud-vm.png)  
