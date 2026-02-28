@@ -229,7 +229,7 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini filebeat.yml
 
 Проверяем в Kibana что Filebeat доставляет логи в Elasticsearch
 
-
-
+![alt text](img/20img.JPG)
+![alt text](img/21img.JPG)
 
 
