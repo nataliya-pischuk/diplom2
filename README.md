@@ -137,3 +137,57 @@ terraform apply
 Проверяем наличие снимков и их расписание
 ![alt text](img/6img.JPG)
 ![alt text](img/7img.JPG)
+
+Инфраструктура подготовлена, переходим к настройке виртуальных машин
+## Ansible
+#### 1. Проверяем установку Ansible
+ ```
+   ansible --version
+   ```
+![alt text](img/8img.JPG)
+
+#### 2. Настраиваем ansible на работу через bastion
+файл конфигурации ansible.cfg:
+```
+[defaults]
+inventory = ./hosts.ini
+host_key_checking = False
+```
+
+#### 3. Создаем файл hosts.ini c использованием FQDN имен серверов
+```
+[all:vars]
+ansible_user=user
+ansible_ssh_private_key_file=/home/nataliya_pischuk/.ssh/
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q user@89.169.146.17"'
+
+[web]
+web-1 ansible_host=web1.ru-central1.internal
+web-2 ansible_host=web2.ru-central1.internal
+
+[zabbix_server]
+zabbix_srv ansible_host=zabbix.ru-central1.internal
+
+[kibana]
+kibana_srv ansible_host=kibana.ru-central1.internal
+
+[elasticsearch]
+elastic_srv ansible_host=elasticsearch.ru-central1.internal
+```
+
+#### 4. Проверяем доступность VM используя модуль ping
+![alt text](img/9img.JPG)
+
+### Устанавливаем NGINX и загружаем сайт
+```
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini nginx.yml 
+```
+![alt text](img/10img.JPG)
+
+Проверяем доступность сайта в браузере по публичному ip адресу Load Balancer
+![alt text](img/11img.JPG)
+
+Делаем запрос curl -v
+![alt text](img/12img.JPG)
+
+
