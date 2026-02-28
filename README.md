@@ -130,3 +130,10 @@ terraform plan
 terraform apply
 ```
 ![alt text](img/3img.JPG)
+Проверяем созданную инфраструктуру в Yandex Cloud:
+![alt text](img/4img.JPG)
+![alt text](img/5img.JPG)
+
+Проверяем наличие снимков и их расписание
+![alt text](img/6img.JPG)
+![alt text](img/7img.JPG)
