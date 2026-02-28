@@ -68,5 +68,5 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ```
 terraform -v
 ```
-![alt text](/img/1img.png)  
+![alt text](img/1img.JPG)  
 
