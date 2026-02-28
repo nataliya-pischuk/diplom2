@@ -1,0 +1,37 @@
+---
+- name: Установка Nginx и настройка страницы
+  hosts: web
+  become: yes
+ 
+  tasks:
+    - name: update kesh 
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Установка Nginx
+      apt:
+        name: nginx
+        state: present
+           
+    - name: Запуск Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+    
+    - name: Create HTML
+      copy:
+        content: "<html><head><title>My diplom PischukNV</title></head><body><h1>My diplom PischukNV</h1>The END!!!<h2>My diplom PischukNV</h1></body></html>"
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+
+      notify:
+        - Restart Nginx
+    
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
