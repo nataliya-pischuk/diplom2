@@ -64,9 +64,54 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ---
 # Выполнение дипломной работы
 ## Terraform
-1. Устанавливаем и проверяем работу terraform
+#### 1. Устанавливаем и проверяем работу terraform
 ```
 terraform -v
 ```
 ![alt text](img/1img.JPG)  
 
+#### 2. Вносим данные, указанные в документации
+```
+provider_installation {
+  network_mirror {
+    url = "https://terraform-mirror.yandexcloud.net/"
+    include = ["registry.terraform.io/*/*"]
+  }
+  direct {
+    exclude = ["registry.terraform.io/*/*"]
+  }
+}
+```
+#### 3. В папке, в которой будет запускаться Terraform, создаем файл providers.tf с следующим содержанием
+```
+terraform {
+  required_providers {
+    yandex = {
+      source  = "yandex-cloud/yandex"
+      version = "0.141.0"
+    }
+  }
+
+  required_version = ">=1.8.4"
+}
+
+provider "yandex" {
+  # token                    = "do not use!!!"
+  cloud_id                 = var.cloud_id
+  folder_id                = var.folder_id
+  zone = "ru-central1-b"
+  service_account_key_file = file("~/.authorized_key.json")
+}
+```
+#### 4.Создаем файл для доступа к облаку, используя сервесный аккаунт Yandex Cloud
+
+```
+#cloud-config
+users:
+  - name: user
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINPbjPskICzIXWViRi5TXaCtjVDYYr1CZ7puymMG0wxI cozu@cozu-VirtualBox
+```
