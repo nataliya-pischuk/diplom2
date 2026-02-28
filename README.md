@@ -103,7 +103,7 @@ provider "yandex" {
   service_account_key_file = file("~/.authorized_key.json")
 }
 ```
-#### 4.Создаем файл для доступа к облаку, используя сервесный аккаунт Yandex Cloud
+#### 4.Создаем файл cloud-init.yml для доступа к облаку, используя сервесный аккаунт Yandex Cloud
 
 ```
 #cloud-config
@@ -111,7 +111,9 @@ users:
   - name: user
     groups: sudo
     shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINPbjPskICzIXWViRi5TXaCtjVDYYr1CZ7puymMG0wxI cozu@cozu-VirtualBox
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOlVk5vLOuYAbO0puu4TsKBLxF2EAj37hZor+zIsPHjV nataliya-pischuk@netology
 ```
+#### 5. Проверяем успешную инициализацию в yandex.cloud
+![alt text](img/2img.JPG)
