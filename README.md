@@ -206,6 +206,7 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini zabbix_agent.yml
 ![alt text](img/15img.JPG)
 
 #### 3. Добавляем хосты используя FQDN имена в zabbix сервер и настраиваем дашборды
+![alt text](img/15-1img.JPG)
 
 ## Устанавлиеваем стек ELK для сбора логов
 #### Устанавливаем Elasticsearch
