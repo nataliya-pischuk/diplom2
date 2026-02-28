@@ -103,6 +103,7 @@ provider "yandex" {
   service_account_key_file = file("~/.authorized_key.json")
 }
 ```
+Переменные вынесла в файл variables.tf
 #### 4.Создаем файл cloud-init.yml для доступа к облаку, используя сервесный аккаунт Yandex Cloud
 
 ```
@@ -115,5 +116,17 @@ users:
     ssh_authorized_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOlVk5vLOuYAbO0puu4TsKBLxF2EAj37hZor+zIsPHjV nataliya-pischuk@netology
 ```
-#### 5. Проверяем успешную инициализацию в yandex.cloud
+#### 5. Проверяем успешную инициализацию в Yandex Cloud
 ![alt text](img/2img.JPG)
+
+#### 6. Развертываем terraform
+Подготавливаем файлы .tf переменных, инфраструктуры (группы доступа, сети).
+Перед применением настроек, проверяем корректность
+```
+terraform plan
+```
+Запускаем развертку инфраструктуры в Yandex Cloud
+```
+terraform apply
+```
+![alt text](img/3img.JPG)
