@@ -185,9 +185,10 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini nginx.yml
 ![alt text](img/10img.JPG)
 
 Проверяем доступность сайта в браузере по публичному ip адресу Load Balancer
-![alt text](img/11img.JPG)
-(Немного скорректировала страницу index.html, чтобы было видно, что страницы с web-1 и web-2 загружаются поочередно)
+Обращение к WEB-1
 ![alt text](img/11-2img.JPG)
+
+Обращение к WEB-2
 ![alt text](img/11-1img.JPG)
 Делаем запрос curl -v
 ![alt text](img/12img.JPG)
