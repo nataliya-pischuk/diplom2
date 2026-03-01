@@ -63,6 +63,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ---
 # Выполнение дипломной работы
+
 ## Terraform
 #### 1. Устанавливаем и проверяем работу terraform
 ```
@@ -240,3 +241,7 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini filebeat.yml
 
 ### Выполнение дипломного задания завершено!!!
 
+Актуальные адреса на VM
+[Балансировщик](http://158.160.206.231/)
+[Zabbix серевер](http://93.77.191.11/zabbix/)
+[Kibana](http://93.77.178.220:5601/app/management/kibana)
