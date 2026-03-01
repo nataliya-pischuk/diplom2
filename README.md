@@ -186,7 +186,9 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini nginx.yml
 
 Проверяем доступность сайта в браузере по публичному ip адресу Load Balancer
 ![alt text](img/11img.JPG)
-
+(Немного скорректировала страницу index.html, чтобы было видно, что страницы с web-1 и web-2 загружаются поочередно)
+![alt text](img/11-2img.JPG)
+![alt text](img/11-1img.JPG)
 Делаем запрос curl -v
 ![alt text](img/12img.JPG)
 
@@ -207,6 +209,8 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini zabbix_agent.yml
 
 #### 3. Добавляем хосты используя FQDN имена в zabbix сервер и настраиваем дашборды
 ![alt text](img/16img.JPG)
+
+![alt text](img/16-0img.JPG)
 
 ## Устанавлиеваем стек ELK для сбора логов
 #### Устанавливаем Elasticsearch
