@@ -184,11 +184,11 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini nginx.yml
 ```
 ![alt text](img/10img.JPG)
 
-Проверяем доступность сайта в браузере по публичному ip адресу Load Balancer
-Обращение к WEB-1
+#### Проверяем доступность сайта в браузере по публичному ip адресу Load Balancer
+ Обращение к WEB-1
 ![alt text](img/11-2img.JPG)
 
-Обращение к WEB-2
+ Обращение к WEB-2
 ![alt text](img/11-1img.JPG)
 Делаем запрос curl -v
 ![alt text](img/12img.JPG)
@@ -238,4 +238,5 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ./hosts.ini filebeat.yml
 ![alt text](img/20img.JPG)
 ![alt text](img/21img.JPG)
 
+### Выполнение дипломного задания завершено!!!
 
